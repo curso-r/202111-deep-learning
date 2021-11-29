@@ -72,6 +72,17 @@ Mais pessoas acompanhando e respondendo as dúvidas.
 
 Em um ambiente aberto, as suas dúvidas vão contribuir com a comunidade.
 
+---
+
+## Trabalho final!
+
+- Escolher um banco de dados de imagem ou texto. No [kaggle tem vários](https://www.kaggle.com/datasets). Pode ser qualquer um!
+
+- Ajustar algum modelo de Deep Learning usando Keras e escrever um relatório 
+com os resultados.
+
+- Prazo de entrega: 1 mês.
+
 
 ---
 
@@ -1474,14 +1485,6 @@ exemplo 20: exemplos/20-quora.R
 
 ---
 
-## Trabalho final!
-
-- Escolher um banco de dados de imagem ou texto. No [kaggle tem vários](https://www.kaggle.com/datasets). Pode ser qualquer um!
-
-- Ajustar algum modelo de Deep Learning usando Keras e escrever um relatório 
-com os resultados.
-
-- Prazo de entrega: 1 mês.
-
+## Obrigado
 
 
