@@ -12,25 +12,6 @@ y <- as.numeric(y > 25)
 
 # Model definition ---------------------------------------------
 
-input <- layer_input(shape = ncol(x))
-output <- input %>% 
-  layer_dense(units = 32, activation = "relu") %>% 
-  layer_dense(units = 64, activation = "relu") %>% 
-  layer_dense(units = 512, activation = "relu") %>% 
-  layer_dense(units = 1, activation = "sigmoid")
-
-model <- keras_model(input, output)
-model %>% compile(
-  loss = loss_binary_crossentropy,
-  optimizer = optimizer_adam(),
-  metrics = list(metric_binary_accuracy)
-)
 
 # Model fitting ------------------------------------------------
 
-model %>% 
-  fit(x, y, batch_size = 32, epochs = 5, validation_split = 0.2)
-
-preds <- predict(model, x)
-table(preds > 0.5, y)
-Metrics::auc(y, preds)

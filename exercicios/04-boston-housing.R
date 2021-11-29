@@ -14,26 +14,9 @@ y <- scale(y)
 
 # Model definition ---------------------------------------------
 
-input <- layer_input(shape = ncol(x))
-output <- input %>% 
-  layer_dense(units = 32, activation = "relu") %>% 
-  layer_dense(units = 64, activation = "relu") %>% 
-  layer_dense(units = 512, activation = "relu") %>% 
-  layer_dense(units = 1)
-
-model <- keras_model(input, output)
-model %>% compile(
-  loss = loss_mean_squared_error,
-  optimizer = optimizer_adam(),
-  metrics = list(keras::metric_mean_squared_error)
-)
 
 # Model fitting ------------------------------------------------
 
-model %>% 
-  fit(x, y, batch_size = 32, epochs = 5, validation_split = 0.2)
 
-preds <- predict(model, x)
-plot(preds, y)
 
 
