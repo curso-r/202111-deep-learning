@@ -1,24 +1,16 @@
 ---
 output: github_document
-params: 
-  main_repo: "main-deep-learning"
-  turma: "202111-deep-learning"
-  nome_curso: "Deep Learning"
-  num_aula: 0
-  download_material: TRUE # Deixe TRUE se quiser que tenha um link
-  # para baixar o zip do material
 ---
+
+# Deep Learning
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  echo = FALSE
+  comment = "#>"
 )
-
-library(magrittr)
 ```
 
 Repositório com material das aulas de deep learning com R.
@@ -37,18 +29,9 @@ Repositório com material das aulas de deep learning com R.
   - Redes neurais convolucionais (CNN)
   - *Long short-term memory* (LSTM)
 
-## Informações importantes
+## Slides
 
-```{r results='asis'}
-if(params$download_material == TRUE){
- glue::glue("- [Clique aqui](https://github.com/curso-r/{params$main_repo}/raw/master/material_do_curso.zip) para baixar o material do curso.")
-  }
-```
-
-
-- Nosso blog: [https://curso-r.com/blog/](https://curso-r.com/blog/)
-
-- Nossos livros: [Ciência de Dados em R](https://livro.curso-r.com/) e [Zen do R](https://curso-r.github.io/zen-do-r/)
+Os slides do curso podem ser encontrados nesse [link](https://curso-r.github.io/202107-deep-learning/slides).
 
 ## Instalação
 
@@ -76,135 +59,44 @@ tensorflow::tf_version() # deve retornar 2.4 ou maior
 
 Nesse vídeo você pode ver o passo a passo da instalação no Windows: https://www.youtube.com/watch?v=nSOyfBulXlQ&feature=youtu.be
 
-
 ## Dúvidas
 
-Fora do horário de aula ou monitoria:
+O melhor lugar para tirar dúvidas relativas ao conteúdo do curso é no nosso [discourse](https://discourse.curso-r.com/).
 
-- perguntas gerais sobre o curso deverão ser feitas no Classroom.
+## Scripts usados em aula
 
-- perguntas sobre R, principalmente as que envolverem código, deverão ser enviadas no [nosso fórum](https://discourse.curso-r.com/).
+#### Exemplos 
 
-
-## Slides
-
-```{r}
-paths <- CursoRutils:::list_github_files(params$main_repo, "slides/", "*.html$|*.pptx$|*.pdf$")
-
-tibble::tibble(
-  slide = paths,
-  link = paste0("https://curso-r.github.io/", params$main_repo, "/", slide),
-    slides = glue::glue("[{slide}]({link})")
-) %>% 
-  dplyr::filter(!stringr::str_detect(slide, "_files/|_cache")) %>%
-    dplyr::select(slides) %>% 
-  knitr::kable()
-```
-
-
-## Scripts utilizados em aula
-
-```{r}
-pasta <- "exemplos_de_aula/"
+```{r, echo = FALSE}
 knitr::kable(
   tibble::tibble(
-    script = list.files(pasta, pattern = ".R$"),
-    link = paste0("https://curso-r.github.io/", params$turma, "/", pasta, script),
-    scrpit = glue::glue("[{script}]({link})")
-  ) %>%
-    dplyr::select(script)
+    exemplo = list.files("exemplos/"),
+    link = paste0("[link](https://curso-r.github.io/202107-deep-learning/exemplos/", exemplo, ")"),
+    gh_link = paste0("[link](https://github.com/curso-r/202107-deep-learning/blob/main/exemplos/", exemplo, ")")
+  )
 )
 ```
 
+#### Exercicios
 
-## Lição de casa
-
-```{r}
-tibble::tibble(
-  nome = CursoRutils:::list_github_files(params$main_repo, "exercicios/"),
-  link = paste0("https://curso-r.github.io/", params$main_repo, "/", nome),
-  exercicio = glue::glue("[{nome}]({link})")
-) %>%
-    dplyr::filter(!stringr::str_detect(nome, "resolucao_")) %>% 
-  dplyr::select(exercicio) %>% 
-  knitr::kable()
-```
-
-
-## Trabalhos finais premiados
-
-Em breve
-
-```{r eval=FALSE, include=FALSE}
-nome_pasta <- "trabalhos_finais"
-
-tibble::tibble(
-  script = list.files(nome_pasta, recursive = FALSE),
-  link = paste0(
-    "https://curso-r.github.io/",
-    params$turma, "/",
-    nome_pasta, "/",
-    script
+```{r, echo = FALSE}
+knitr::kable(
+  tibble::tibble(
+    exercicio = list.files("exercicios/"),
+    link = paste0("[link](https://curso-r.github.io/202107-deep-learning/exercicios/", exercicio, ")"),
+    gh_link = paste0("[link](https://github.com/curso-r/202107-deep-learning/blob/main/exercicios/", exercicio, ")")
   )
-) %>% 
-  knitr::kable()
+)
 ```
 
+#### Respostas
 
-
-## Material extra
-
-Referências extras comentadas nas aulas, ou materiais que comentamos quando tiramos dúvidas (não necessariamente são relacionadas com o conteúdo da aula).
-
-```{r echo=FALSE, message=FALSE}
-
-# adicione aqui, na aba correspondente ao curso: https://docs.google.com/spreadsheets/d/1SmCKCvJBff3CVty-xYKJ4NhEo2j6sUwkdET46vQisDY/edit?usp=sharing
-
-googlesheets4::gs4_deauth()
-"1SmCKCvJBff3CVty-xYKJ4NhEo2j6sUwkdET46vQisDY" %>% 
-  googledrive::as_id() %>% 
-  googlesheets4::read_sheet(params$main_repo) %>%
-  dplyr::mutate(link = glue::glue("[{desc}]({url})")) %>%
-  dplyr::select(-desc, -url) %>%
-  dplyr::arrange(aula) %>% 
-  dplyr::filter(aula <= params$num_aula) %>% 
-  knitr::kable(col.names = c("Aula", "Tema", "Descrição")) 
-
-```
-
-## Redes sociais da Curso-R
-
-
-Youtube: https://www.youtube.com/c/CursoR6/featured
-
-Instagram: https://www.instagram.com/cursoo_r/
-
-Twitter: https://twitter.com/curso_r
-
-Linkedin: https://www.linkedin.com/company/curso-r/
-
-Facebook: https://www.facebook.com/cursodeR
-
-
-
-```{r}
-# Criar arquivo _config.yml
-if(params$download_material == TRUE){
- glue::glue('theme: jekyll-theme-minimal', '\n',
-    "logo: assets/logo.png", '\n',
-    "title: {params$nome_curso}", '\n',
-    "show_downloads: true", '\n',
-    "link_material: 'https://github.com/curso-r/{params$main_repo}/raw/master/material_do_curso.zip'", '\n'
-    
-    ) %>%
-    readr::write_lines( "_config.yml")
-}
-
-if(params$download_material == FALSE){
-  glue::glue('theme: jekyll-theme-minimal', '\n',
-    "logo: assets/logo.png", '\n',
-    "title: {params$nome_curso}", '\n',
-    "show_downloads: false", '\n') %>%
-    readr::write_lines( "_config.yml")
-}
+```{r, echo = FALSE}
+knitr::kable(
+  tibble::tibble(
+    exercicio = list.files("respostas/"),
+    link = paste0("[link](https://curso-r.github.io/202107-deep-learning/respostas/", exercicio, ")"),
+    gh_link = paste0("[link](https://github.com/curso-r/202107-deep-learning/blob/main/respostas/", exercicio, ")")
+  )
+)
 ```
