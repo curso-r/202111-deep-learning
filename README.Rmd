@@ -31,7 +31,7 @@ Repositório com material das aulas de deep learning com R.
 
 ## Slides
 
-Os slides do curso podem ser encontrados nesse [link](https://curso-r.github.io/202107-deep-learning/slides).
+Os slides do curso podem ser encontrados nesse [link](https://curso-r.github.io/202111-deep-learning/slides).
 
 ## Instalação
 
@@ -71,8 +71,8 @@ O melhor lugar para tirar dúvidas relativas ao conteúdo do curso é no nosso [
 knitr::kable(
   tibble::tibble(
     exemplo = list.files("exemplos/"),
-    link = paste0("[link](https://curso-r.github.io/202107-deep-learning/exemplos/", exemplo, ")"),
-    gh_link = paste0("[link](https://github.com/curso-r/202107-deep-learning/blob/main/exemplos/", exemplo, ")")
+    link = paste0("[link](https://curso-r.github.io/202111-deep-learning/exemplos/", exemplo, ")"),
+    gh_link = paste0("[link](https://github.com/curso-r/202111-deep-learning/blob/main/exemplos/", exemplo, ")")
   )
 )
 ```
@@ -83,8 +83,8 @@ knitr::kable(
 knitr::kable(
   tibble::tibble(
     exercicio = list.files("exercicios/"),
-    link = paste0("[link](https://curso-r.github.io/202107-deep-learning/exercicios/", exercicio, ")"),
-    gh_link = paste0("[link](https://github.com/curso-r/202107-deep-learning/blob/main/exercicios/", exercicio, ")")
+    link = paste0("[link](https://curso-r.github.io/202111-deep-learning/exercicios/", exercicio, ")"),
+    gh_link = paste0("[link](https://github.com/curso-r/202111-deep-learning/blob/main/exercicios/", exercicio, ")")
   )
 )
 ```
@@ -95,8 +95,8 @@ knitr::kable(
 knitr::kable(
   tibble::tibble(
     exercicio = list.files("respostas/"),
-    link = paste0("[link](https://curso-r.github.io/202107-deep-learning/respostas/", exercicio, ")"),
-    gh_link = paste0("[link](https://github.com/curso-r/202107-deep-learning/blob/main/respostas/", exercicio, ")")
+    link = paste0("[link](https://curso-r.github.io/202111-deep-learning/respostas/", exercicio, ")"),
+    gh_link = paste0("[link](https://github.com/curso-r/202111-deep-learning/blob/main/respostas/", exercicio, ")")
   )
 )
 ```
