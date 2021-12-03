@@ -28,7 +28,7 @@ summary(model)
 model %>% 
   compile(
     loss = loss_binary_crossentropy,
-    optimizer = optimizer_sgd(lr = 0.1),
+    optimizer = optimizer_sgd(learning_rate = 0.1),
     metrics = "accuracy"
   )
 
@@ -43,10 +43,14 @@ model %>%
   )
 
 get_weights(model)
+
+predict(model, x)
+
 table(
   predict(model, x) > 0.5,
   y
 )
 
-
+model <- glm(y ~ x[,1] + x[,2], family = "binomial")
+predict(model, as.data.frame(x), type = "response")
 

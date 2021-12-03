@@ -40,6 +40,36 @@ dyhat_db <- function(b) {
 
 # Ajustar usando mini-batches ---------------------------------------------
 
+w <- runif(1)
+b <- 0
 
+batch_size <- 15
+
+lr <- 0.1
+
+for(epoch in 1:5) {
+  numero_grupos <- as.integer(length(x)/batch_size)
+  grupos <- sample.int(numero_grupos, size = length(x), replace = TRUE)
+  indices <- split(1:length(x), f = grupos)
+  for (ind in indices) {
+    
+    y_hat <- model(w, b, x)
+    
+    w <- w - lr*mean(dl_dyhat(y_hat)[ind] * dyhat_dw(w)[ind])
+    b <- b - lr*mean(dl_dyhat(y_hat)[ind])
+    
+    if (step %% 10 == 0) {
+      print(loss(y, y_hat))
+    }
+    
+  }
+}
+
+w
+b
+
+for(ind in indices) {
+  print(ind)
+}
 
 

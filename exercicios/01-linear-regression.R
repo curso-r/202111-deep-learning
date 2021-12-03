@@ -47,4 +47,43 @@ dyhat_db <- function(b) {
 
 # escreva o laço que faz a estimativa de todos os parametros w1, w2 e b.
 
+# inicializando os pesos
+w1 <- runif(1)
+w2 <- runif(1)
+b <- 0
+
+lr <- 0.1
+
+scores <- numeric()
+
+w1s <- numeric()
+w2s <- numeric()
+bs <- numeric()
+
+for (step in 1:500) {
+  
+  y_hat <- model(w1, w2, b, x1, x2)
+  
+  w1 <- w1 - lr*mean(dl_dyhat(y_hat) * dyhat_dw1(w1))
+  w2 <- w2 - lr*mean(dl_dyhat(y_hat) * dyhat_dw2(w2))
+  b <- b - lr*mean(dl_dyhat(y_hat) * dyhat_db(b))
+  
+  w1s[step] <- w1
+  w2s[step] <- w2
+  bs[step] <- b
+  
+  if (step %% 10 == 0) {
+    scores <- c(scores, loss(y, y_hat))
+  }
+  
+}
+
+plot(scores)
+plot(w1s)
+plot(w2s)
+plot(bs)
+
+w1
+w2
+b
 

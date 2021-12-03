@@ -22,17 +22,19 @@ y <- relu(x %*% W + B) %*% V + a
 input <- layer_input(shape = 2)
 
 output <- input %>% 
-  layer_dense(units = 2, activation = "relu") %>% 
+  layer_dense(units = 1000, activation = "relu") %>% 
   layer_dense(units = 1)
 
 model <- keras_model(input, output)
+
+get_weights(model)
 
 summary(model)
 
 model %>% 
   compile(
     loss = loss_mean_squared_error,
-    optimizer = optimizer_sgd(lr = 0.01)
+    optimizer = optimizer_sgd(learning_rate = 0.01)
   )
 
 # Model fitting ---------------------------------------------------
@@ -41,7 +43,7 @@ model %>%
   fit(
     x = x,
     y = y,
-    batch_size = 2, 
+    batch_size = 10, 
     epochs = 5
   )
 
