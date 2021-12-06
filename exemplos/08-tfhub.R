@@ -21,7 +21,7 @@ input <- layer_input(shape = c(32, 32, 3))
 # handle = "https://tfhub.dev/tensorflow/efficientnet/b4/feature-vector/1",
 output <- input %>% 
   
-  layer_lambda(function(x) tf$image$resize(x, c(299L, 299L))) %>% 
+  layer_lambda(function(x) tf$image$resize(x, c(96L, 96L))) %>% 
   layer_hub(
     handle = "https://tfhub.dev/google/imagenet/mobilenet_v2_075_96/feature_vector/5",
     trainable = FALSE
