@@ -34,7 +34,7 @@ output <-  input %>%
   layer_global_average_pooling_1d() %>% 
   layer_dense(units = ncol(y), activation = "sigmoid")
 
-auc <- tensorflow::tf$keras$metrics$AUC()
+auc <- metric_auc()
 
 model <- keras_model(input, output)
 summary(model)

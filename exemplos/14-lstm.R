@@ -38,7 +38,6 @@ output <-  input %>%
     mask_zero = TRUE
   ) %>% 
   layer_lstm(units = 256) %>% 
-  #layer_cudnn_lstm(units = 256) %>% 
   layer_dense(units = ncol(y), activation = "sigmoid")
 
 model <- keras_model(input, output)
