@@ -30,14 +30,14 @@ Os seguintes programas serão instalados. Estamos prevendo algum tempo no
 início do curso para instalar os pacotes mas se você já conseguir
 instalar, melhor!
 
-1.  Instale o R! De preferência a versão mais recente (>= 4.0).
+1.  Instale o R! De preferência a versão mais recente (&gt;= 4.0).
 
 No Windows você também precisa instalar o [Microsoft Visual C++
 Redistributable for Visual Studio 2015, 2017 and
 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
 Baixar a versão x64.
 
-2.  Execute as seguintes linhas de código em uma sessão limpa do R.
+1.  Execute as seguintes linhas de código em uma sessão limpa do R.
     (Certifique-se de fechar todas as outras sessões do R/RStudio que
     estiverem abertas no seu computador).
 
@@ -49,7 +49,7 @@ Baixar a versão x64.
     keras::install_keras()
     tfhub::install_tfhub()
 
-3.  Verifique a instalação com:
+1.  Verifique a instalação com:
 
 <!-- -->
 
@@ -67,7 +67,7 @@ nosso [discourse](https://discourse.curso-r.com/).
 
 #### Exemplos
 
-| exemplo                      | link                                                                                         | gh_link                                                                                                 |
+| exemplo                      | link                                                                                         | gh\_link                                                                                                |
 |:-----------------------------|:---------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------|
 | 01-linear-regression.R       | [link](https://curso-r.github.io/202111-deep-learning/exemplos/01-linear-regression.R)       | [link](https://github.com/curso-r/202111-deep-learning/blob/main/exemplos/01-linear-regression.R)       |
 | 02-sgd.R                     | [link](https://curso-r.github.io/202111-deep-learning/exemplos/02-sgd.R)                     | [link](https://github.com/curso-r/202111-deep-learning/blob/main/exemplos/02-sgd.R)                     |
@@ -90,6 +90,7 @@ nosso [discourse](https://discourse.curso-r.com/).
 | 15-simple-gru.R              | [link](https://curso-r.github.io/202111-deep-learning/exemplos/15-simple-gru.R)              | [link](https://github.com/curso-r/202111-deep-learning/blob/main/exemplos/15-simple-gru.R)              |
 | 16-gru.R                     | [link](https://curso-r.github.io/202111-deep-learning/exemplos/16-gru.R)                     | [link](https://github.com/curso-r/202111-deep-learning/blob/main/exemplos/16-gru.R)                     |
 | 17-pre-trained-embedding.R   | [link](https://curso-r.github.io/202111-deep-learning/exemplos/17-pre-trained-embedding.R)   | [link](https://github.com/curso-r/202111-deep-learning/blob/main/exemplos/17-pre-trained-embedding.R)   |
+| 17.1-tfhub.R                 | [link](https://curso-r.github.io/202111-deep-learning/exemplos/17.1-tfhub.R)                 | [link](https://github.com/curso-r/202111-deep-learning/blob/main/exemplos/17.1-tfhub.R)                 |
 | 18-encadeando-lstms.R        | [link](https://curso-r.github.io/202111-deep-learning/exemplos/18-encadeando-lstms.R)        | [link](https://github.com/curso-r/202111-deep-learning/blob/main/exemplos/18-encadeando-lstms.R)        |
 | 19-bidirecional.R            | [link](https://curso-r.github.io/202111-deep-learning/exemplos/19-bidirecional.R)            | [link](https://github.com/curso-r/202111-deep-learning/blob/main/exemplos/19-bidirecional.R)            |
 | 20-quora.R                   | [link](https://curso-r.github.io/202111-deep-learning/exemplos/20-quora.R)                   | [link](https://github.com/curso-r/202111-deep-learning/blob/main/exemplos/20-quora.R)                   |
@@ -101,7 +102,7 @@ nosso [discourse](https://discourse.curso-r.com/).
 
 #### Exercicios
 
-| exercicio                    | link                                                                                           | gh_link                                                                                                   |
+| exercicio                    | link                                                                                           | gh\_link                                                                                                  |
 |:-----------------------------|:-----------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------|
 | 01-linear-regression.R       | [link](https://curso-r.github.io/202111-deep-learning/exercicios/01-linear-regression.R)       | [link](https://github.com/curso-r/202111-deep-learning/blob/main/exercicios/01-linear-regression.R)       |
 | 02-mini-batch-sgd.R          | [link](https://curso-r.github.io/202111-deep-learning/exercicios/02-mini-batch-sgd.R)          | [link](https://github.com/curso-r/202111-deep-learning/blob/main/exercicios/02-mini-batch-sgd.R)          |
@@ -120,7 +121,7 @@ nosso [discourse](https://discourse.curso-r.com/).
 
 #### Respostas
 
-| exercicio                    | link                                                                                          | gh_link                                                                                                  |
+| exercicio                    | link                                                                                          | gh\_link                                                                                                 |
 |:-----------------------------|:----------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------|
 | 01-linear-regression.R       | [link](https://curso-r.github.io/202111-deep-learning/respostas/01-linear-regression.R)       | [link](https://github.com/curso-r/202111-deep-learning/blob/main/respostas/01-linear-regression.R)       |
 | 02-mini-batch-sgd.R          | [link](https://curso-r.github.io/202111-deep-learning/respostas/02-mini-batch-sgd.R)          | [link](https://github.com/curso-r/202111-deep-learning/blob/main/respostas/02-mini-batch-sgd.R)          |
