@@ -45,6 +45,7 @@ text_vectorization %>% adapt(sentences)
 # Prepare embedding layer -------------------------------------------------
 library(tidyverse)
 
+# options(timeout = 3000)
 # download.file("http://nlp.stanford.edu/data/glove.6B.zip", "glove.zip")
 
 glove <- read_delim(
@@ -67,11 +68,6 @@ get_embedding_weights <- function(vocab, pre_trained) {
   idx <- match(vocab, rownames(pre_trained))
   x <- pre_trained[idx,]
   x[is.na(x)] <- 0
-  x <- rbind(
-    rep(0, ncol(x)), # padding
-    rep(0, ncol(x)), # oov token
-    x
-  )
   x
 }
 
@@ -92,8 +88,8 @@ input <- layer_input(shape = 1L, dtype = "string")
 output <- input %>% 
   text_vectorization() %>% 
   embedding_layer() %>% 
-  layer_lstm(units = 15, return_sequences = TRUE) %>% 
-  layer_global_max_pooling_1d() %>% 
+  layer_lstm(units = 15) %>% 
+  # layer_global_max_pooling_1d() %>% 
   layer_dense(units = ncol(target), activation = "sigmoid")
 
 model <- keras_model(input, output)

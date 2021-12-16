@@ -19,8 +19,9 @@ vectorize <- layer_text_vectorization(
   pad_to_max_tokens = TRUE
 )
 
+
 vectorize %>% 
-  adapt(c(question1, question2))
+  adapt(c(question1, question2), batch_size = 5000)
 
 vocab <- get_vocabulary(vectorize)
 
@@ -57,7 +58,7 @@ output <- layer_dot(list(e1, e2), axes = 1) %>%
 model <- keras_model(list(input1, input2), output)
 
 model %>% compile(
-  optimizer = optimizer_sgd(lr = 0.1), 
+  optimizer = optimizer_sgd(learning_rate = 0.1), 
   metrics = "accuracy",
   loss = "binary_crossentropy"
 )
